@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var elements = document.getElementsByTagName('p');
-   var patt=new RegExp("@.+@");
+    var patt=new RegExp("@.+@");
     for (var i = elements.length-1;i>=0;i--){
         var str = elements[i].innerHTML;
         var rst = patt.exec(str);
