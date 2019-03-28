@@ -1,4 +1,4 @@
-(function( window, undefined ) {
+(function() {
 $(document).ready(function(){
     var txt1="<p>文本。</p>";              // 使用 HTML 标签创建文本
     var txt2=$("<p></p>").text("文本。");  // 使用 jQuery 创建文本
@@ -11,4 +11,4 @@ $(document).ready(function(){
     console.log(t);     // 追加新元素
     document.write('aa');
 });
-})( window );
+})();
