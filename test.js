@@ -8,7 +8,6 @@ $(document).ready(function(){
     var n = $(document)[0].childNodes;
     var t = $("#test2");
     t.append(txt3);
-    console.log(t);     // 追加新元素
-    document.write('aa');
+    console.log(t);     // 追加新元
 });
 })();
