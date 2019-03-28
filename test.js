@@ -4,7 +4,7 @@ $(document).ready(function(){
     for (var i = elements.length-1;i>=0;i--){
         var str = elements[i].innerHTML;
         var rst = patt.exec(str);
-        for (var j = elements.length-1;j>=0;j--){
+        for (var j = rst.length-1;j>=0;j--){
             console.log(rst[j]);
         }
     }
