@@ -11,4 +11,4 @@ $(document).ready(function(){
     console.log(t);     // 追加新元素
     document.write('aa');
 });
-})( window )
+})( window );
