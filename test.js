@@ -4,8 +4,13 @@ $(document).ready(function(){
     for (var i = elements.length-1;i>=0;i--){
         var str = elements[i].innerHTML;
         var rst = patt.exec(str);
-        for (var j = rst.length-1;j>=0;j--){
-            console.log(rst[j]);
+        if(rst !=null){
+            for (var j = rst.length-1;j>=0;j--){
+                str = str.replace(rst[j],'<span class="hint">我是注释</span>')
+                console.log(rst[j]);
+                console.log(str);
+            }
         }
+        elements[i].innerHTML = str;
     }
 });
