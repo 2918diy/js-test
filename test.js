@@ -6,7 +6,9 @@ $(document).ready(function(){
         var rst = patt.exec(str);
         if(rst !=null){
             for (var j = rst.length-1;j>=0;j--){
-                if(rst[j].search(/@\\]/)!= -1){
+                
+                if(rst[j].search(/\]@/)!= -1){
+                    console.log(rst[j])
                     var cl = getClass(rst[j]);
                     elements[i].setAttribute("class",cl);
                     elements[i].innerText = elements[i].innerText.replace(rst[j], "");
