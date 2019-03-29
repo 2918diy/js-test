@@ -6,15 +6,22 @@ $(document).ready(function(){
         var rst = patt.exec(str);
         if(rst !=null){
             for (var j = rst.length-1;j>=0;j--){
-                str = str.replace(rst[j],'<span class="hint">我是注释</span>')
-                var cl = getClass(rst[j]);
-                var span = document.createElement("span"); 
-                span.setAttribute("class",cl);
-                span.append(getValue(rst[j]));
-                console.log(span);
+                if(rst[j].search(/@\\]/)!= -1){
+                    var cl = getClass(rst[j]);
+                    elements[i].setAttribute("class",cl);
+                    elements[i].innerText = elements[i].innerText.replace(rst[j], "");
+                }
+                else{
+                    var cl = getClass(rst[j]);
+                    var span = document.createElement("span"); 
+                    span.setAttribute("class",cl);
+                    span.append(getValue(rst[j]));
+                    elements[i].innerHTML = elements[i].innerHTML.replace(rst[j],span.outerHTML)
+                }
+                
             }
         }
-        elements[i].innerHTML = str;
+       
     }
 });
 
@@ -31,5 +38,13 @@ function getClass(rst){
     
 }
 function getValue(rst){
-    return rst.replace(/\\[.+\\]/, "")
+    var patt=new RegExp("\\].+@");
+    var cl = patt.exec(rst);
+    if(cl !=null){
+        cl[0] = cl[0].substring(1,cl[0].length-1)
+        return cl[0]
+    }
+    else{
+        return rst
+    }
 }
